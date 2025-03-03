@@ -1,12 +1,10 @@
 package org.isdb_62_spring.practice.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping
 @RestController
+@CrossOrigin(origins = "*")
 public class DummyController {
 
     @GetMapping("/hello")
@@ -24,9 +22,11 @@ public class DummyController {
         return number * number;
     }
 
-    @GetMapping("/myfriend")
-    public String getFriend(@RequestParam String myName, @RequestParam String friendName) {
-        return"My name is " + myName + " and " + friendName + " is my best friends!";
+    @GetMapping("/info")
+    public String info(@RequestParam (name = "my_Name") String myName ,
+                            @RequestParam (required = false) String fatherName,
+                            @RequestParam (value = "age") int sonAge
+    )  {
+        return"My name is " + myName + " and my father name is: " + fatherName +  sonAge +" !" ;
     }
-
 }
