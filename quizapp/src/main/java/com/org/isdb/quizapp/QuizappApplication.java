@@ -10,4 +10,7 @@ public class QuizappApplication {
 		SpringApplication.run(QuizappApplication.class, args);
 	}
 
+	public static class QuestionService {
+
+	}
 }
