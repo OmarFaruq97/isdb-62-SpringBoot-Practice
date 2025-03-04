@@ -1,16 +1,15 @@
-package org.isdb_62_spring.practice.controller;
+package com.org.isdb62.student.controller;
 
-import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 @CrossOrigin(origins = "*")
-public class DummyController {
-
-    @GetMapping("/hello")
+public class Controller {
+	@GetMapping("/hello")
     public String hello(){
         return "hello world";
     }
@@ -30,6 +29,7 @@ public class DummyController {
                             @RequestParam (required = false) String fatherName,
                             @RequestParam (value = "age") int sonAge
     )  {
-        return"My name is " + myName + " and my father name is: " + fatherName +  sonAge +" !" ;
+        return"My name is " + myName + " and my father name is: " + fatherName +"My age is"+  sonAge +" !" ;
     }
+
 }

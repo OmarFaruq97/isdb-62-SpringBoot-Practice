@@ -1,10 +1,10 @@
-package org.isdb_62_spring.practice;
+package com.org.isdb62.student;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PracticeApplicationTests {
+class StudentApplicationTests {
 
 	@Test
 	void contextLoads() {

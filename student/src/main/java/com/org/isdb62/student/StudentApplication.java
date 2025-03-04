@@ -1,13 +1,13 @@
-package org.isdb_62_spring.practice;
+package com.org.isdb62.student;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PracticeApplication {
+public class StudentApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PracticeApplication.class, args);
+		SpringApplication.run(StudentApplication.class, args);
 	}
 
 }
