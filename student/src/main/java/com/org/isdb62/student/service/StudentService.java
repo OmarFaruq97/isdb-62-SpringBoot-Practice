@@ -1,5 +1,6 @@
 package com.org.isdb62.student.service;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -27,4 +28,21 @@ public class StudentService {
 		repository.deleteById(id);		
 	}
 
+	public Student updateStudent(int id, Student studentDetails) {
+        Optional<Student> optionalStudent = repository.findById(id); // ✅ CORRECT: Called on an instance, not statically
+
+        if (optionalStudent.isPresent()) {
+            Student student = optionalStudent.get();
+            student.setName(studentDetails.getName());
+            student.setClazz(studentDetails.getClazz());
+            student.setAge(studentDetails.getAge());
+            student.setAddress(studentDetails.getAddress());
+            student.setDob(studentDetails.getDob());
+
+            return repository.save(student);
+        } else {
+            throw new RuntimeException("Student not found with id: " + id);
+        }
+    }	
 }
+

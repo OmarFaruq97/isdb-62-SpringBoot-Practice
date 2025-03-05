@@ -4,6 +4,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
@@ -13,6 +16,18 @@ public class Controller {
     public String hello(){
         return "hello world";
     }
+	
+	@GetMapping("/omar")
+	public static String getdata(@RequestParam int num1, @RequestParam int num2) {
+		int sum= num1+num2;
+		return "Result"+ sum;
+	}	
+	
+	@PostMapping("/subs")
+	public static String getdata2  (@RequestParam int num1, @RequestParam int num2) {
+		int substract = num1-num2;
+		return "Result=" + substract;
+	}
 
     @GetMapping("/bye")
     public String bye(){
