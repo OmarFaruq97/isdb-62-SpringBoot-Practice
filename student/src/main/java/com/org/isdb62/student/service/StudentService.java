@@ -9,7 +9,9 @@ import com.org.isdb62.student.repository.StudentRepository;
 
 @Service
 public class StudentService {
+	
 	private final StudentRepository repository;
+	
 	
 	public StudentService(StudentRepository repository) {
 		this.repository = repository;
@@ -28,21 +30,15 @@ public class StudentService {
 		repository.deleteById(id);		
 	}
 
-	public Student updateStudent(int id, Student studentDetails) {
-        Optional<Student> optionalStudent = repository.findById(id); // ✅ CORRECT: Called on an instance, not statically
+	public Optional<Student> findStudentById(int id) {		
+		return findStudentById(id);
+	}
 
-        if (optionalStudent.isPresent()) {
-            Student student = optionalStudent.get();
-            student.setName(studentDetails.getName());
-            student.setClazz(studentDetails.getClazz());
-            student.setAge(studentDetails.getAge());
-            student.setAddress(studentDetails.getAddress());
-            student.setDob(studentDetails.getDob());
+	public List<Student> getStudentsByName(String name) {		
+		return null;
+	}
 
-            return repository.save(student);
-        } else {
-            throw new RuntimeException("Student not found with id: " + id);
-        }
-    }	
+	
+    	
 }
 
