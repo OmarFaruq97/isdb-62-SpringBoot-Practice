@@ -29,7 +29,7 @@ public class StudentService {
 	}
 
 	public Student updateStudent(int id, Student studentDetails) {
-        Optional<Student> optionalStudent = repository.findById(id); // ✅ CORRECT: Called on an instance, not statically
+        Optional<Student> optionalStudent = repository.findById(id);  // CORRECT: Called on an instance, not statically.
 
         if (optionalStudent.isPresent()) {
             Student student = optionalStudent.get();
