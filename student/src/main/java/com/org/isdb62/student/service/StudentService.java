@@ -11,32 +11,34 @@ import com.org.isdb62.student.repository.StudentRepository;
 public class StudentService {
 	
 	private final StudentRepository repository;
-	
-	
+
 	public StudentService(StudentRepository repository) {
 		this.repository = repository;
 	}
 
 	public Student saveStudent(Student student) {
-		Student saved = repository.save(student);
-		return saved;		
-	}	
+		if (student != null)
+			return repository.save(student);
+		else
+			return null;
+	}
 
 	public List<Student> getStudents() {
 		return repository.findAll();
 	}
 
 	public void deleteById(int id) {
-		repository.deleteById(id);		
+		repository.deleteById(id);
 	}
-	
-	public Student updateStudent(int id, Student studentDetails) {
-        Optional<Student> optionalStudent = repository.findById(id);  // CORRECT: Called on an instance, not statically.
 
+	public Optional<Student> findStudentById(int id) {
+		return repository.findById(id);
 	}
-	public List<Student> getStudentsByName(String name) {		
-		return null;
+
+	public List<Student> getStudentsByName(String name) {
+		return repository.findAllByName(name);
 	}
+
 } 	
 
 
