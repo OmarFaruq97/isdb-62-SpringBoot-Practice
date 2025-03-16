@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.isdb62.employee.model.Employee;
 import com.isdb62.employee.service.EmployeeService;
@@ -48,10 +49,14 @@ public class EmployeeController {
 	@PutMapping("/{id}")
 	public Employee updateEmp(@PathVariable int id,@RequestBody Employee employee) {
 		Employee updated = service.updateEmp(id, employee);
-		return updated;
-		
+		return updated;		
 	}
 	
+	@GetMapping("search/{name}")
+	public List <Employee> getEmpByName(@PathVariable String name){
+		List <Employee> name1 = service.getempByname(name);
+		return name1;
+	}
 	
 	
 }

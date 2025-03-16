@@ -58,7 +58,8 @@ public class EmployeeRepository {
 		String sql = "SELECT * FROM Employee";
 		return jdbcTemplate.query(sql, new EmployeeRowMapper());
 	}
-
+	
+	
 	public int update(Employee employee) {
 		String sql = "UPDATE Employee SET name = ?, email = ?, designation = ?, "
 				+ "age = ?, address = ?, dob = ?, salary = ? WHERE id = ?";
