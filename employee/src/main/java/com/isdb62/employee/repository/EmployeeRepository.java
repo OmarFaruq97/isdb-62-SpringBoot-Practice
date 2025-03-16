@@ -84,6 +84,7 @@ public class EmployeeRepository {
 	}
 
 	private static class EmployeeRowMapper implements RowMapper<Employee> {
+		@Override
 		public Employee mapRow(ResultSet rs, int rowNum) throws SQLException {
 			return new Employee(rs.getInt("id"), rs.getString("name"), rs.getString("email"),
 					rs.getString("designation"), rs.getInt("age"), rs.getString("address"),
@@ -132,6 +133,4 @@ public class EmployeeRepository {
 			throw new RuntimeException("Error saving employee", e);
 		}
 	}
-
-
 }

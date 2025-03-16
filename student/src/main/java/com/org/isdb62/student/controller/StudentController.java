@@ -34,7 +34,7 @@ public class StudentController {
 	public Student saveStudent(@RequestBody Student  student) {
 		Student saveStudent=service.saveStudent(student);		
 		
-		return new Student();
+		return saveStudent;
 	}
 	
 	@GetMapping

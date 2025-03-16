@@ -13,7 +13,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity(name="student_sb")
-
 public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,17 +25,22 @@ public class Student {
     
     
     public Student() {}
-	public Student(int id, String name, String clazz, int age, String address, LocalDate dob) {
-		
+	public Student(int id, String name, String clazz, int age, String address, LocalDate dob) {	
 		this.id = id;
 		this.name = name;
 		this.clazz = clazz;
 		this.age = age;
 		this.address = address;
 		this.dob = dob;
-		
-		
 	}
+	public Student(String name, String clazz, int age, String address, LocalDate dob) {
+		this.name = name;
+		this.clazz = clazz;
+		this.age = age;
+		this.address = address;
+		this.dob = dob;
+	}
+	
 	public int getId() {
 		return id;
 	}
