@@ -1,0 +1,10 @@
+CREATE TABLE Employee (
+    id SERIAL PRIMARY KEY,                -- Automatically increments for each new employee.
+    name VARCHAR(100),                    -- Employee's name, with a maximum length of 100 characters.
+    email VARCHAR(100) UNIQUE,            -- Employee's email address, set to be unique.
+    designation VARCHAR(100),             -- Employee's job title or role.
+    age INT,                              -- Employee's age.
+    address TEXT,                          -- Employee's address, allows for longer strings.
+    dob DATE,                             -- Employee's date of birth.
+    salary DECIMAL(15, 2)                 -- Employee's salary, with two decimal places.
+);
