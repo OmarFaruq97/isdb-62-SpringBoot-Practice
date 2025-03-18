@@ -40,15 +40,8 @@ public class EmployeeService {
 		return getEmpById(id);
 	}
 
-//	public List<Employee> getempByname() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
 	public  List<Employee> getempByname(String name) {	
 		List<Employee> name1 = repository.findByName(name);
 		return name1;
-	}
-
-	
+	}	
 }
