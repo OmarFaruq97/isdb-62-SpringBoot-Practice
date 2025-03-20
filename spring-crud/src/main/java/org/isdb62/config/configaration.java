@@ -10,7 +10,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 public class configaration {
 	 @Bean
 	    public ObjectMapper objectMapper() {
-		 return new ObjectMapper().registerModule(new JavaTimeModule()); // ✅ Enable Java 8 Date/Time Support
+		 return new ObjectMapper().registerModule(new JavaTimeModule()); // Enable Java 8 Date/Time Support
 	    }
 
 }

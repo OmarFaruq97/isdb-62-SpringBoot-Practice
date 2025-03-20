@@ -106,8 +106,9 @@ public class EmployeeRepository {
 			preparedStatement.setString(3, employee.getDesignation());
 			preparedStatement.setInt(4, employee.getAge());
 			preparedStatement.setString(5, employee.getAddress());
-			preparedStatement.setObject(6, employee.getDob());
+			preparedStatement.setObject(6, employee.getDob()); // Check if 'dob' is properly handled
 			preparedStatement.setDouble(7, employee.getSalary());
+
 
 			// Execute the insert
 			int affectedRows = preparedStatement.executeUpdate();

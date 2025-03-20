@@ -20,9 +20,9 @@
 		<property name="driverClassName"
 			value="org.postgresql.Driver" />
 		<property name="jdbcUrl"
-			value="jdbc:postgresql://localhost:5432/postgres" />
+			value="jdbc:postgresql://localhost:5432/DemoDB" />
 		<property name="username" value="postgres" />
-		<property name="password" value="isdb62" />
+		<property name="password" value="1234" />
 	</bean>
 
 	<!-- JdbcTemplate configuration -->
