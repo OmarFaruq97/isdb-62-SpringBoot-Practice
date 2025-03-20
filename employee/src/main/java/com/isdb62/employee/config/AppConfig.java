@@ -16,9 +16,9 @@ public class AppConfig {
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/DemoDB");
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
 		dataSource.setUsername("postgres");
-		dataSource.setPassword("1234");
+		dataSource.setPassword("isdb62");
 		dataSource.setInitialSize(5); // Initial connections in the pool
 		dataSource.setMaxTotal(20); // Maximum number of active connections
 		dataSource.setMaxIdle(10); // Maximum idle connections
