@@ -23,17 +23,15 @@ import com.org.isdb62.student.service.StudentService;
 public class StudentController {
 	
 	@Autowired
-	private final StudentService service;	
-	
+	private final StudentService service;
 	
 	public StudentController(StudentService service) {
 		this.service = service;
 	}
 	
-	@PostMapping	
+	@PostMapping
 	public Student saveStudent(@RequestBody Student  student) {
-		Student saveStudent=service.saveStudent(student);		
-		
+		Student saveStudent = service.saveStudent(student);		
 		return saveStudent;
 	}
 	
@@ -69,11 +67,9 @@ public class StudentController {
 			if (st.getDob() != student.getDob()) {
 				st.setDob(student.getDob());
 			}
-
 		}
 		return service.saveStudent(st);
 		}
-	
 	
 	@GetMapping("/byName")
 	public List <Student > getStudentByName(@RequestParam String name) {
