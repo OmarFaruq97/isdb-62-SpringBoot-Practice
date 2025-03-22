@@ -1,12 +1,6 @@
 package com.org.isdb62.school_management.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,21 +12,22 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity(name = "T_BOOK")
 public class Book {
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
 
-    @Column(nullable=false, length =100)
+    @Column(nullable=false, length =25)
     private String name;
 
-    @Column(nullable=false, length =100)
+    @Column(nullable=false, length =25)
     private String author;
 
-    @Column(nullable=false, length =100)
+    @Column(nullable=false, length =25)
     private String publisher;
 
-    @ManyToOne
-    @JoinColumn(name = "class_id", nullable = false)
+    @OneToOne
+    @JoinColumn(name = "class", referencedColumnName = "id", nullable = false)
     private Class clazz;
 
     @ManyToOne

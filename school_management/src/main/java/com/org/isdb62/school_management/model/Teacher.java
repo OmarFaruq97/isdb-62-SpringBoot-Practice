@@ -19,17 +19,18 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Teacher {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(nullable = false, length = 30)
+    @Column(unique = true, nullable = false, length = 15)
     private String name;
 
     @Column(nullable = false, length = 30, unique = true)
     private String email;
 
-    @Column(nullable = false, length = 10)
+    @Column(nullable = false, length = 6)
     private String gender;
 
     @Column(length = 100)

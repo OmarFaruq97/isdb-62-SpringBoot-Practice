@@ -18,6 +18,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity(name = "T_CLASS")
 public class Class {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -29,7 +30,7 @@ public class Class {
     @JoinColumn(name = "class_teacher", referencedColumnName = "id", nullable = false)
     private Teacher classTeacher;
 
-    @Column(nullable = false, length =  10,unique=true, name = "room_number")
+    @Column(nullable = false, length =  100,unique=true, name = "room_number")
     private Integer roomNumber;
 
 }

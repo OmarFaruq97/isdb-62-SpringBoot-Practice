@@ -22,6 +22,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Student {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -29,26 +30,26 @@ public class Student {
     @Column(nullable= false, length=15)
     private String name;
 
-    @Column(unique= true, length = 50)
+    @Column(length = 15, nullable = false)
     private String email;
 
     @OneToOne
     @JoinColumn(name="clazz", referencedColumnName="id", nullable = false)
     private Class clazz;
 
-    @Column(nullable = false , unique= true)
+    @Column(nullable = false , unique= true, length = 10)
     private int roll;
 
     @OneToMany (mappedBy="student")
     private List<Book> books;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 15)
     private String phone;
 
-    @Column(nullable = false, length = 50)
+    @Column(length = 50)
     private String address;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 6)
     private String gender;
 
     @Column(nullable = false, length = 30)
