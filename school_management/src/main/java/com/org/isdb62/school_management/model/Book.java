@@ -17,18 +17,19 @@ public class Book {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
 
-    @Column(nullable=false, length =25)
+    @Column(nullable=false, length =100)
     private String name;
 
-    @Column(nullable=false, length =25)
+    @Column(nullable=false, length =100)
     private String author;
 
-    @Column(nullable=false, length =25)
+    @Column(nullable=false, length =100)
     private String publisher;
 
     @OneToOne
-    @JoinColumn(name = "class", referencedColumnName = "id", nullable = false)
-    private Class clazz;
+    @JoinColumn(name = "clazz",referencedColumnName = "id" , nullable = false)
+    // @Transient
+    private StudentClass clazz;
 
     @ManyToOne
     @JoinColumn(name = "student_id", nullable = false)
