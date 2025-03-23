@@ -3,6 +3,9 @@ package com.org.isdb62.school_management.model;
 import java.math.BigDecimal;
 import java.time.Instant;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.org.isdb62.school_management.config.InstantDeserializer;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -38,12 +41,13 @@ public class Teacher {
     @Column(nullable = false)
     private String phone;
 
+    @JsonDeserialize(using =  InstantDeserializer.class)
     @Column(name = "joining_date", updatable=false, nullable = false)
     private Instant joiningDate;
 
     @Column(nullable = false)
     private BigDecimal salary;
 
-    @Column(name = "marital_status")
-    private Boolean maritalStatus;
+    @Column(name = "is_married")
+    private Boolean isMarried;
 }
