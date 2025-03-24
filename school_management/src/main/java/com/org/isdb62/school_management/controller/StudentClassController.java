@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/class")
 public class StudentClassController {
@@ -53,7 +52,4 @@ public class StudentClassController {
     public StudentClass updateStudentClass(@PathVariable Integer id, @RequestBody StudentClassDTO classDTO) {
         return studentClassService.updateStudentClass(id, classDTO);
     }
-    
-    
-
 }

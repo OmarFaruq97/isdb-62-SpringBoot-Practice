@@ -48,7 +48,7 @@ public class StudentClassService {
     }
 
     public StudentClass updateStudentClass(Integer id, StudentClassDTO classDTO) {
-        Optional <StudentClass> classById = studentClassRepository.findById(id);
+        Optional<StudentClass> classById = studentClassRepository.findById(id);
 
         if(classById.isPresent()){
             StudentClass aClass = new StudentClass();
@@ -66,7 +66,10 @@ public class StudentClassService {
                 }
                 aClass.setClassTeacher(teacher);                
             }
-            return studentClassRepository.save(aClass);            
+            return studentClassRepository.save(aClass);
+        }
+        else {
+            throw new IllegalArgumentException("Class not found");
         }
     }
 }

@@ -21,7 +21,7 @@ public class StudentClass {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
     @Column(nullable = false, length = 50, unique= false)
     private String name;
@@ -30,12 +30,6 @@ public class StudentClass {
     @JoinColumn(name = "class_teacher", referencedColumnName = "id", nullable = false)
     private Teacher classTeacher;
 
-    @Column(nullable = false, length =  100,unique=true, name = "room_number")
+    @Column(nullable = false, length =  10,unique=true, name = "room_number")
     private Integer roomNumber;
-
-    public Integer getClassTeacherId() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getClassTeacherId'");
-    }
-
 }
