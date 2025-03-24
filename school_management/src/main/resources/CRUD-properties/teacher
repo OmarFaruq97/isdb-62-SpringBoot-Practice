@@ -1,0 +1,11 @@
+{
+        
+        "name": "",
+        "email": "",
+        "gender": "",
+        "address": "",
+        "phone": "",
+        "joiningDate": "",
+        "salary": 0,
+        "isMarried": false
+    }

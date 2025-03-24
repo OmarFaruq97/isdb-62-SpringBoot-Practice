@@ -40,4 +40,8 @@ public class TeacherController {
     public Teacher updateTeacher (@PathVariable Integer id,@RequestBody Teacher teacher){
         return teacherService.updateTeacher(id, teacher);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3d4a7c14f5d57766d3bb5f7c97d8059c278ad770

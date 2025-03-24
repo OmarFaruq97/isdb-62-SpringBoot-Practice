@@ -71,7 +71,7 @@ public class StudentController {
 		return service.saveStudent(st);
 		}
 	
-	@GetMapping("/byName")
+	@GetMapping("/id")
 	public List <Student > getStudentByName(@RequestParam String name) {
 		List <Student> students = service.getStudentsByName(name);
 		return students;
