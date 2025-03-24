@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.org.isdb62.school_management.model.Teacher;
 import com.org.isdb62.school_management.repository.TeacherRepository;
+
 import org.springframework.stereotype.Service;
 
 @Service

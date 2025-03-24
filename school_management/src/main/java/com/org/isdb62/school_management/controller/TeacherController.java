@@ -2,6 +2,8 @@ package com.org.isdb62.school_management.controller;
 
 import com.org.isdb62.school_management.model.Teacher;
 import com.org.isdb62.school_management.service.TeacherService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,9 +19,11 @@ public class TeacherController {
     }
 
     @PostMapping
-    public Teacher saveTeacher(@RequestBody Teacher teacher){
-        return teacherService.saveTeacher(teacher);
-    }
+    public ResponseEntity<?> saveTeacher(@RequestBody Teacher teacher) {
+        Teacher saved = teacherService.saveTeacher(teacher); // Store the saved teacher
+        return new ResponseEntity<>(saved, HttpStatus.CREATED); // Return the saved teacher with status
+}
+
 
     @GetMapping("/{id}")
     public Teacher getTeacher(@PathVariable Integer id){
@@ -27,8 +31,9 @@ public class TeacherController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteTeacher (@PathVariable Integer id){
+    public ResponseEntity<?> deleteTeacher (@PathVariable Integer id){
         teacherService.deleteTeacher(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @GetMapping

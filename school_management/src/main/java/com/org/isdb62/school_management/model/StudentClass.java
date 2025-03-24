@@ -23,7 +23,7 @@ public class StudentClass {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 50, unique= false)
     private String name;
 
     @OneToOne
@@ -32,5 +32,10 @@ public class StudentClass {
 
     @Column(nullable = false, length =  100,unique=true, name = "room_number")
     private Integer roomNumber;
+
+    public Integer getClassTeacherId() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getClassTeacherId'");
+    }
 
 }
