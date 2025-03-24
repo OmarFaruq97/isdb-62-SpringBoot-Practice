@@ -18,10 +18,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity(name = "T_CLASS")
 public class StudentClass {
-<<<<<<< HEAD
-=======
 
->>>>>>> 3d4a7c14f5d57766d3bb5f7c97d8059c278ad770
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

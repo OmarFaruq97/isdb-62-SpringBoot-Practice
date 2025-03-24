@@ -1,24 +1,14 @@
 package com.org.isdb62.school_management.service;
 
-<<<<<<< HEAD
 import java.util.List;
 
-=======
->>>>>>> 3d4a7c14f5d57766d3bb5f7c97d8059c278ad770
 import com.org.isdb62.school_management.model.Teacher;
 import com.org.isdb62.school_management.repository.TeacherRepository;
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
 @Service
 public class TeacherService {
 
-=======
-import java.util.List;
-
-@Service
-public class TeacherService {
->>>>>>> 3d4a7c14f5d57766d3bb5f7c97d8059c278ad770
     private final TeacherRepository teacherRepository;
     public  TeacherService (TeacherRepository teacherRepository){
         this.teacherRepository = teacherRepository;
@@ -33,11 +23,7 @@ public class TeacherService {
     }
 
     public void deleteTeacher(Integer id) {
-<<<<<<< HEAD
          teacherRepository.deleteById(id);
-=======
-        teacherRepository.deleteById(id);
->>>>>>> 3d4a7c14f5d57766d3bb5f7c97d8059c278ad770
     }
 
     public List<Teacher> getAllTeacher() {
@@ -78,8 +64,6 @@ public class TeacherService {
             return null;
         }
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 3d4a7c14f5d57766d3bb5f7c97d8059c278ad770
 }
+
+
