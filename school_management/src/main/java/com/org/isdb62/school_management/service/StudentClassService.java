@@ -1,8 +1,7 @@
 package com.org.isdb62.school_management.service;
 
-
+import java.util.List;
 import java.util.Optional;
-
 import org.springframework.stereotype.Service;
 
 import com.org.isdb62.school_management.dto.StudentClassDTO;
@@ -26,9 +25,8 @@ public class StudentClassService {
         Integer teacherId = classDTO.getClassTeacherId();
         Teacher teacher =  teacherService.getTeacher(teacherId);      
         if (teacher == null){
-            throw new IllegalArgumentException("Teacher not found");
+            throw new IllegalArgumentException("Teacher not found" + teacherId);
         }
-
     StudentClass studentClass = new StudentClass();
     studentClass.setName(classDTO.getName());
     studentClass.setRoomNumber(classDTO.getRoomNumber());
@@ -36,17 +34,20 @@ public class StudentClassService {
 
     return studentClassRepository.save(studentClass);
     }
-    
 
     public StudentClass getStudentClass(Integer id) {
         return studentClassRepository.findById(id).orElse(null);
     }
 
     public  void deleteStudentClass(Integer id) {
-        
+        studentClassRepository.deleteById(id);
     }
 
-    public StudentClass UpdateStudentClass(Integer id, StudentClassDTO classDTO) {
+    public List<StudentClass> getAllStudentClass(){
+        return studentClassRepository.findAll();
+    }
+
+    public StudentClass updateStudentClass(Integer id, StudentClassDTO classDTO) {
         Optional <StudentClass> classById = studentClassRepository.findById(id);
 
         if(classById.isPresent()){

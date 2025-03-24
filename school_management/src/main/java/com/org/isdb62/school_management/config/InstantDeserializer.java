@@ -10,7 +10,6 @@ import java.time.LocalDate;
 import java.time.ZoneOffset;
 
 public class InstantDeserializer extends JsonDeserializer <Instant> {
-
 @Override
 public Instant deserialize(JsonParser p, DeserializationContext ctxt) throws
  IOException {

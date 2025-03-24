@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 
+import java.util.List;
 
 
 @RestController
@@ -27,28 +28,30 @@ public class StudentClassController {
     }
 
     @PostMapping
-    public ResponseEntity<?> savStudentClass(@RequestBody StudentClass classDTO) {
-        StudentClass saved = studentClassService.saveStudentClass(classDTO)   ;     
+    public ResponseEntity<?> savStudentClass(@RequestBody StudentClassDTO classDTO) {
+        StudentClass saved = studentClassService.saveStudentClass(classDTO);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public StudentClass getStudentClass(@PathVariable Integer id) {
-        StudentClass byId = studentClassService.getStudentClass(id);
-        return byId;
+        return studentClassService.getStudentClass(id);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity <?> deleteStudentClass (@PathVariable Integer id){
+    public ResponseEntity<?> deleteStudentClass (@PathVariable Integer id){
        studentClassService.deleteStudentClass(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @GetMapping
+    public List<StudentClass> getAllStudentClasses() {
+        return studentClassService.getAllStudentClass();
+    }
+
     @PutMapping("/{id}")
-    public StudentClass UpdateStudentClass(@PathVariable Integer id,
-     @RequestBody StudentClassDTO classDTO) {
-        StudentClass updated = studentClassService.UpdateStudentClass(id, classDTO);
-        return updated;
+    public StudentClass updateStudentClass(@PathVariable Integer id, @RequestBody StudentClassDTO classDTO) {
+        return studentClassService.updateStudentClass(id, classDTO);
     }
     
     
