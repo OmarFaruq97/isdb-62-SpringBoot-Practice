@@ -9,10 +9,19 @@ import java.util.List;
 
 @Service
 public class MedicineService {
-
-    @Autowired
+    
     private MedicineRepository repository;
-    public List<Medicine> getAllMedicines() {
+    public List<Medicine> getAllMedicine() {
         return repository.findAll();
+    }
+
+
+    public Medicine saveMedicine(Medicine medicine) {
+    }
+
+    public Medicine getMedById(int id) {
+    }
+
+    public void deleteById(int id) {
     }
 }
