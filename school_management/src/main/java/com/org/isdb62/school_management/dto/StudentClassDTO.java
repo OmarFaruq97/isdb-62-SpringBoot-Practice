@@ -13,7 +13,6 @@ import lombok.Setter;
 public class StudentClassDTO {
 
 	@NonNull
-	@Size(min = 3, max=30, message = "Incorrect name")
     private String name;
 	@NonNull
 	private Integer classTeacherId;
