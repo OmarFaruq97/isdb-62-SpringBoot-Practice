@@ -13,5 +13,7 @@ public class BookDTO {
     private String name;
     private String author;    
     private String publisher;
-    private Integer clazzId;    
+    private Integer classId;
+
+
 }

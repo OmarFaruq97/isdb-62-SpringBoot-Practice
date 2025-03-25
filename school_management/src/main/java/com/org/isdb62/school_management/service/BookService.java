@@ -16,14 +16,15 @@ public class BookService {
     private final BookRepository bookRepository;
 	private final StudentClassService studentClassService;
 
-	public BookService(BookRepository bookRepository, StudentClassService studentClassService) {
+	public BookService(BookRepository bookRepository,
+                       StudentClassService studentClassService) {
 		this.bookRepository = bookRepository;
 		this.studentClassService = studentClassService;
 	}
 
 	public Book saveBook(BookDTO bookDTO) {
-		Integer clazzId = bookDTO.getClazzId();
-		StudentClass clazz = studentClassService.getStudentClass(clazzId);
+		Integer classId = bookDTO.getClassId();
+		StudentClass clazz = studentClassService.getStudentClass(classId);
 
 		Book book = new Book();
 		book.setName(bookDTO.getName());
@@ -37,13 +38,11 @@ public class BookService {
 	}
 
     public List<Book> getAllBook() {
-        
-        throw new UnsupportedOperationException("Unimplemented method 'getAllBook'");
+        return bookRepository.findAll();
     }
 
     public void deleteBook(Integer id) {
-        
-        throw new UnsupportedOperationException("Unimplemented method 'deleteBook'");
+        bookRepository.deleteById(id);
     }
 
     public Book updateBook(Integer id, Book book) {
@@ -69,14 +68,13 @@ public class BookService {
                 aBook.setClazz(clazz);
             }
             return bookRepository.save(aBook);
-        }else{
+        }else {
             throw new IllegalArgumentException("Book not found");
         }
     }
 
     public Book getBook(Integer id) {
-        
-        throw new UnsupportedOperationException("Unimplemented method 'getBook'");
+        return bookRepository.findById(id).orElse(null);
     }
 
 

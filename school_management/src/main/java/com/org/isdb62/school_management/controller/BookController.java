@@ -1,26 +1,20 @@
 package com.org.isdb62.school_management.controller;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.org.isdb62.school_management.dto.BookDTO;
 import com.org.isdb62.school_management.model.Book;
 import com.org.isdb62.school_management.service.BookService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
-
+@RequestMapping("/book")
 public class BookController {
+
     private final BookService bookService;
 
     public BookController( BookService bookService){
@@ -34,8 +28,8 @@ public class BookController {
     }
 
     @GetMapping
-    public ResponseEntity <List <Book>>getAllBook() {
-        List <Book> books =bookService.getAllBook();
+    public ResponseEntity <List<Book>> getAllBook() {
+        List<Book> books =bookService.getAllBook();
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
