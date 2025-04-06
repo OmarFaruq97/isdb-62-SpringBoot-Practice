@@ -1,6 +1,8 @@
 package com.org.isdb62.school_management.controller;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import com.org.isdb62.school_management.dao.ClassTeacherProjection;
 import com.org.isdb62.school_management.dto.StudentClassDTO;
 import com.org.isdb62.school_management.model.StudentClass;
 import com.org.isdb62.school_management.service.StudentClassService;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/class")
@@ -52,4 +55,10 @@ public class StudentClassController {
     public StudentClass updateStudentClass(@PathVariable Integer id, @RequestBody StudentClassDTO classDTO) {
         return studentClassService.updateStudentClass(id, classDTO);
     }
+
+    @GetMapping("/getAllClassTeacher")
+    public List <ClassTeacherProjection> getAllClassTeacher() {
+        return studentClassService.getAllClassTeachers();
+    }
+    
 }

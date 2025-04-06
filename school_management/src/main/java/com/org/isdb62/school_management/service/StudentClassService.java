@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 
+import com.org.isdb62.school_management.dao.ClassTeacherProjection;
 import com.org.isdb62.school_management.dto.StudentClassDTO;
 import com.org.isdb62.school_management.model.StudentClass;
 import com.org.isdb62.school_management.model.Teacher;
@@ -72,5 +73,11 @@ public class StudentClassService {
             throw new IllegalArgumentException("Class not found");
         }
     }
+
+    public List<ClassTeacherProjection> getAllClassTeachers() {        
+        return studentClassRepository.getAllClassTeacher();
+    }
+
+       
 }
 
