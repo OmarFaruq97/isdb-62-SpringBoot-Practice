@@ -3,6 +3,7 @@ package com.org.isdb62.school_management.service;
 import java.util.List;
 import java.util.Optional;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import com.org.isdb62.school_management.dto.StudentDTO;
@@ -10,13 +11,15 @@ import com.org.isdb62.school_management.model.Student;
 import com.org.isdb62.school_management.model.StudentClass;
 import com.org.isdb62.school_management.repository.StudentRepository;
 
+@Slf4j
 @Service
 public class StudentService {
 
     private final StudentRepository repository;
     private final StudentClassService studentClassService;
 
-    public StudentService(StudentRepository repository, StudentClassService studentClassService){
+    public StudentService(StudentRepository repository,
+						  StudentClassService studentClassService){
         this.repository = repository;
         this.studentClassService = studentClassService;
     }
@@ -40,12 +43,16 @@ public class StudentService {
     }
 
     public Student getStudent(Integer id) {
-        return repository.findById(id).orElse(null);
+		return repository.findById(id).orElse(null);
     }
 
     public void deleteStudent(Integer id) {
-        repository.deleteById(id);
+		repository.deleteById(id);
     }
+
+	public List<Student> getAllStudent() {
+		return repository.findAll();
+	}
 
     public Student updateStudent(Integer id, StudentDTO studentDTO) {
 		Optional<Student> studentById = repository.findById(id);
@@ -71,12 +78,10 @@ public class StudentService {
 			if (studentDTO.getRoll() != null) {
 				aStudent.setRoll(studentDTO.getRoll());
 			}
-
 			/*
 			 * if (studentDTO.getBookIds() != null) {
 			 * aStudent.setBook(studentDTO.getBookIds()); }
 			 */
-
 			if (studentDTO.getPhone() != null) {
 				aStudent.setPhone(studentDTO.getPhone());
 			}
@@ -98,9 +103,5 @@ public class StudentService {
 			throw new IllegalArgumentException("Student no found");
 		         
         }
-    }
-
-    public List<Student> getAllStudent() {
-        return repository.findAll();
     }
 }

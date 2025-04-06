@@ -14,17 +14,11 @@ import com.org.isdb62.school_management.dto.StudentDTO;
 import com.org.isdb62.school_management.model.Student;
 import com.org.isdb62.school_management.service.StudentService;
 
-import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
-
-
-@Slf4j
 @RestController
 @RequestMapping(value = "/student")
 public class StudentController {
@@ -32,21 +26,20 @@ public class StudentController {
     private final StudentService studentService;
 
 	public StudentController(StudentService service) {
-		this.studentService = service;
+        this.studentService = service;
 	}
 
     @PostMapping
-    public ResponseEntity <Student> saveStudent ( StudentDTO studentDTO){
+    public ResponseEntity <Student> saveStudent (@RequestBody StudentDTO studentDTO){
         Student saved = studentService.saveStudent(studentDTO);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity <Student> getStudent(@RequestParam Integer id) {
+    public ResponseEntity <Student> getStudent(@PathVariable Integer id) {
         Student student= studentService.getStudent(id);
         return new ResponseEntity<>(student, HttpStatus.OK);
     }
-
     
     @DeleteMapping("/{id}")
     public ResponseEntity <?> deleteStudent(@PathVariable Integer id){

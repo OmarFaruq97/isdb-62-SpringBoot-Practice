@@ -1,19 +1,44 @@
 package com.org.isdb62.school_management.config;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler; // ✅ Fixed: Corrected incorrect import
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @RestControllerAdvice
-public class RestExceptionAdvice extends ResponseEntityExceptionHandler {
+public class RestExceptionHandler extends ResponseEntityExceptionHandler {
+
+    protected ResponseEntity <Object> handleMethodArgumentNotValid(
+            MethodArgumentNotValidException ex, HttpHeaders headers,
+            HttpStatusCode status, WebRequest request
+    ){
+        Map< String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now());
+        body.put("status", status.value());
+        body.put("error", "Validation");
+
+        // Extract field errors and messages
+        Map<String, String> errors =
+                ex.getBindingResult().getFieldErrors().stream().collect(Collectors.toMap(
+                        fieldError -> fieldError.getField(),
+                        fieldError -> fieldError.getDefaultMessage(),
+                        (existing, replacement) -> existing
+                ));
+        body.put("message", errors);
+        body.put("path", request.getDescription(false));
+        return new  ResponseEntity<> (body, headers, status);
+    }
 
     @ExceptionHandler({IllegalArgumentException.class, IllegalStateException.class}) 
     protected ResponseEntity<Object> handleBadRequest(RuntimeException ex, WebRequest request) {
@@ -25,10 +50,9 @@ public class RestExceptionAdvice extends ResponseEntityExceptionHandler {
         return buildErrorResponse(ex, HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 
-    // ✅ Moved buildErrorResponse inside the class
     private ResponseEntity<Object> buildErrorResponse(Exception ex, HttpStatus status, WebRequest request) {
         Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", LocalDate.now()); // ✅ Fixed: Corrected typo "timestap" to "timestamp"
+        body.put("timestamp", LocalDate.now());
         body.put("status", status.value());
         body.put("error", status.getReasonPhrase());
         body.put("message", ex.getMessage());
