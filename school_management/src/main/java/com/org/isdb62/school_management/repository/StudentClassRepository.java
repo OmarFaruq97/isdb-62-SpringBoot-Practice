@@ -22,4 +22,15 @@ public interface StudentClassRepository extends JpaRepository<StudentClass,Integ
 
     // @Query ("SELECT new com.org.isdb62.school_management.dao.ClassTeacherRecord(sc.name, sc.classTeacherName) FROM StudentClass sc")
     // List<ClassTeacherRecord> fetchAllClassTeacherRecords();
+
+    //Row query
+    @Query(
+    value = "SELECT sc.name AS className, t.name AS teacherName, sc.room_number AS roomNumber, t.email AS teacherEmail " +
+            "FROM student_class sc " +
+            "JOIN teacher t ON sc.teacher_id = t.id " +
+            "WHERE sc.status = 1",
+        nativeQuery = true)
+        List<ClassTeacherProjection> findAllActiveClassTeachersNative();
 }
+
+

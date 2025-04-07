@@ -6,6 +6,9 @@ import com.org.isdb62.school_management.dao.ClassTeacherProjection;
 import com.org.isdb62.school_management.dto.StudentClassDTO;
 import com.org.isdb62.school_management.model.StudentClass;
 import com.org.isdb62.school_management.service.StudentClassService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +23,8 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/class")
+@RequestMapping("/Studentclass")
+@Tag(name = "StudentClass Controller", description = "API for StudentClass management")
 public class StudentClassController {
 
     private final StudentClassService studentClassService;

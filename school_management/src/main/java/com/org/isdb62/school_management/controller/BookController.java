@@ -6,6 +6,8 @@ import com.org.isdb62.school_management.dto.BookDTO;
 import com.org.isdb62.school_management.model.Book;
 import com.org.isdb62.school_management.service.BookService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 
 @RestController
 @RequestMapping("/book")
+@Tag(name = "Book Controller", description = "API for Book management")
 public class BookController {
 
     private final BookService bookService;
