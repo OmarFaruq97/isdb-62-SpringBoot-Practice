@@ -2,6 +2,9 @@ package com.org.isdb62.school_management.controller;
 
 import com.org.isdb62.school_management.model.Teacher;
 import com.org.isdb62.school_management.service.TeacherService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/teacher")
+@Tag(name = "Teacher Controller", description = "API for Student Management")
 public class TeacherController {
 
     private final TeacherService teacherService;

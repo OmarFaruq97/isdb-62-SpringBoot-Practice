@@ -14,6 +14,8 @@ import com.org.isdb62.school_management.dto.StudentDTO;
 import com.org.isdb62.school_management.model.Student;
 import com.org.isdb62.school_management.service.StudentService;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping(value = "/student")
+@Tag(name = "Student Controller", description = "API for Student management")
 public class StudentController {
     
     private final StudentService studentService;
