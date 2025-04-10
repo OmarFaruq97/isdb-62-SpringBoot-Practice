@@ -1,19 +1,25 @@
 package com.org.isdb62.mailingPractice.service;
 
-import com.org.isdb62.mailingPractice.utils.EmailServiceUtils;
-import jakarta.mail.Message;
-import jakarta.mail.MessagingException;
-import jakarta.mail.Session;
-import jakarta.mail.internet.InternetAddress;
-import jakarta.mail.internet.MimeMessage;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.Base64;
 import java.util.Properties;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.google.api.services.gmail.Gmail;
+import com.google.api.services.gmail.model.Message;
+import com.org.isdb62.mailingPractice.utils.EmailServiceUtils;
+
+import jakarta.mail.MessagingException;
+import jakarta.mail.Session;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
 
 @Service
 public class EmailService {
@@ -24,7 +30,7 @@ public class EmailService {
     public void sendEmail(String to, String subject, String bodytext)
         throws MessagingException, IOException, GeneralSecurityException{
 //            get Gmail Service
-            Gmail service = emailServiceUtils.getGmailService;
+            Gmail service = emailServiceUtils.getEmailService();
 
 //            Create email content
             Properties prop = new Properties();
@@ -40,13 +46,13 @@ public class EmailService {
             ByteArrayOutputStream buffer = new ByteArrayOutputStream();
             email.writeTo(buffer);
             byte[] bytes = buffer.toByteArray();
-            String encodedEmail =  Base64.encodeBase64URLSafeString(bytes);
+            String encodedEmail = Base64.getUrlEncoder().encodeToString(bytes); // Corrected line
 
             Message message = new Message();
             message.setRaw(encodedEmail);
 
 //            send the message
-            service.users().message().send("me", message).execute();
+            service.users().messages().send("me", message).execute(); // also fix typo: message → messages
 
     }
 }
