@@ -1,7 +1,5 @@
 package com.org.isdb62.mailingPractice.service;
 
-
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -24,35 +22,35 @@ import jakarta.mail.internet.MimeMessage;
 @Service
 public class EmailService {
 
-    @Autowired
-    private EmailServiceUtils emailServiceUtils;
+	 @Autowired
+	    private EmailServiceUtils emailServiceUtils;
 
-    public void sendEmail(String to, String subject, String bodytext)
-        throws MessagingException, IOException, GeneralSecurityException{
-//            get Gmail Service
-            Gmail service = emailServiceUtils.getEmailService();
+	    public void sendEmail(String to, String subject, String bodytext)
+	        throws MessagingException, IOException, GeneralSecurityException{
+//	            get Gmail Service
+	            Gmail service = emailServiceUtils.getEmailService();
 
-//            Create email content
-            Properties prop = new Properties();
-            Session session = Session.getDefaultInstance(prop,null);
-            MimeMessage email = new MimeMessage(session);
+//	            Create email content
+	            Properties prop = new Properties();
+	            Session session = Session.getDefaultInstance(prop,null);
+	            MimeMessage email = new MimeMessage(session);
 
-            email.setFrom(new InternetAddress("me"));
-            email.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to));
-            email.setSubject(subject);
-            email.setText(bodytext);
+	            email.setFrom(new InternetAddress("me"));
+	            email.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to));
+	            email.setSubject(subject);
+	            email.setText(bodytext);
 
-//            Encode and send the Email
-            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-            email.writeTo(buffer);
-            byte[] bytes = buffer.toByteArray();
-            String encodedEmail = Base64.getUrlEncoder().encodeToString(bytes); // Corrected line
+//	            Encode and send the Email
+	            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+	            email.writeTo(buffer);
+	            byte[] bytes = buffer.toByteArray();
+	            String encodedEmail = Base64.getUrlEncoder().encodeToString(bytes); // Corrected line
 
-            Message message = new Message();
-            message.setRaw(encodedEmail);
+	            Message message = new Message();
+	            message.setRaw(encodedEmail);
 
-//            send the message
-            service.users().messages().send("me", message).execute(); // also fix typo: message → messages
+//	            send the message
+	            service.users().messages().send("me", message).execute(); // also fix typo: message → messages
 
-    }
+	    }
 }
