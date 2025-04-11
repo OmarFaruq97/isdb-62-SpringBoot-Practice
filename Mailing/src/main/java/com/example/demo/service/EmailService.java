@@ -56,7 +56,7 @@ public class EmailService {
 		// Send the message
 		service.users().messages().send("me", message).execute();
 	}
-
+			// this is sendEmailWithAttachment
 	public void sendEmailWithAttachment(String to, String subject, String body, MultipartFile file)
 			throws MessagingException, IOException, GeneralSecurityException {
 
