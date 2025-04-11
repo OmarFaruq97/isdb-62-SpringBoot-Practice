@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TestController {
+
     //Public API endpoints - no authentication required
     @GetMapping("/api/public/hello")
     public String publicHello(){
@@ -21,10 +22,12 @@ public class TestController {
     public String userProfile(){
         return "welcome to your profile! This is accessible to authenticated users with REGULAR_USER role or higher.";
     }
+
     @GetMapping("/api/user/data")
     public String userData(){
         return "Here is your personal data. Only visible to authenticated users";
     }
+
     @GetMapping ("/api/user/reports")
     public String userReports(){
         return "Manager reports dashboard. Only accessible to MANAGER role or higher";
@@ -40,6 +43,7 @@ public class TestController {
     public String adminDashboard(){
         return "Admin dashboard with system statistics. Only accessible to ADMIN role.";
     }
+    
     @GetMapping ("/api/admin/settings")
     public String adminSettings(){
         return "System settings page. Only accessible to ADMIN role";
