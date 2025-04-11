@@ -25,7 +25,7 @@ public class EmailService {
 	 @Autowired
 	    private EmailServiceUtils emailServiceUtils;
 
-	    public void sendEmail(String to, String subject, String bodytext)
+	    public void sendEmail(String to, String subject, String bodyText)
 	        throws MessagingException, IOException, GeneralSecurityException{
 //	            get Gmail Service
 	            Gmail service = emailServiceUtils.getEmailService();
@@ -35,10 +35,10 @@ public class EmailService {
 	            Session session = Session.getDefaultInstance(prop,null);
 	            MimeMessage email = new MimeMessage(session);
 
-	            email.setFrom(new InternetAddress("me"));
+				email.setFrom(new InternetAddress("me")); // "me" is a special value for authorized user
 	            email.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(to));
 	            email.setSubject(subject);
-	            email.setText(bodytext);
+	            email.setText(bodyText);
 
 //	            Encode and send the Email
 	            ByteArrayOutputStream buffer = new ByteArrayOutputStream();

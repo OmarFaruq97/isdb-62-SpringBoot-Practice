@@ -14,5 +14,3 @@ import lombok.Setter;
 	    private String subject;
 	    private String body;
 	}
-
-
