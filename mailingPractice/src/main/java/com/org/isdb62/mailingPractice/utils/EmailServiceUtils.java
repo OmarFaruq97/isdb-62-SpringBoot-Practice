@@ -22,6 +22,7 @@ import java.io.InputStreamReader;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
 import java.util.List;
+
 @Component
 public class EmailServiceUtils {
     private static final String APPLICATION_NAME = "Spring Boot Gmail API";
