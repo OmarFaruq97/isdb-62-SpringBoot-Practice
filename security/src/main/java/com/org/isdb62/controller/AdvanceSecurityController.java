@@ -7,9 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
-
-import static org.springframework.web.servlet.function.RouterFunctions.resources;
 
 @RestController
 @RequestMapping("/api/secured")
