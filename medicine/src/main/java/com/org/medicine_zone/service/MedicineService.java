@@ -12,14 +12,17 @@ import java.util.List;
 public class MedicineService {
 
     @Autowired
-    private MedicineRepository repository;
+    private MedicineRepository medicineRepository;
 
     public List<Medicine> getAllMedicines() {
-        return repository.findAll();
+        return medicineRepository.findAll();
     }
 
     public List<Medicine> getMedByName(String name) {
-        List<Medicine> name1 = repository.findByName(name);
-        return name1;
+        return medicineRepository.findByMedicineName(name);
+    }
+
+    public Medicine saveMedicine(Medicine medicine) {
+        return medicineRepository.save(medicine);
     }
 }

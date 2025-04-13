@@ -22,6 +22,7 @@ public class Medicine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String medicineName;
     private String mg;
     private String generic;

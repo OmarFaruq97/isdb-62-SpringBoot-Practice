@@ -8,6 +8,7 @@ public class MailingApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MailingApplication.class, args);
+		System.out.println("This is Mail");
 	}
 
 }

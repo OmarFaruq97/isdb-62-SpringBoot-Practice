@@ -12,16 +12,20 @@ import java.util.List;
 public class MedicineController {
 
     @Autowired
-    private MedicineService service;
+    private MedicineService medicineService;
 
-    @GetMapping("/medicines")
+    @GetMapping("/all")
     public List<Medicine> getAllMedicines(){
-        return service.getAllMedicines();
+        return medicineService.getAllMedicines();
     }
 
     @GetMapping("search/{name}")
     public List <Medicine> getMedByName(@PathVariable String name){
-        List <Medicine> name1 = service.getMedByName(name);
-        return name1;
+        return medicineService.getMedByName(name);
+    }
+
+    @PostMapping("/add")
+    public Medicine addMedicine(@RequestBody Medicine medicine) {
+        return medicineService.saveMedicine(medicine);
     }
 }
