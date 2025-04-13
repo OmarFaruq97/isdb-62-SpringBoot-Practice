@@ -19,10 +19,39 @@ public class MedicineService {
     }
 
     public List<Medicine> getMedByName(String name) {
+
         return medicineRepository.findByMedicineName(name);
     }
 
     public Medicine saveMedicine(Medicine medicine) {
+
         return medicineRepository.save(medicine);
+    }
+
+    public boolean deleteMedicineById(int id) {
+        if (medicineRepository.existsById(id)) {
+            medicineRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+
+    public Medicine updateMedicine(Integer id, Medicine updateMedicine) {
+        Medicine existing = medicineRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Medicine not found with ID: " + id));
+
+        //update fields
+        existing.setMedicineName(updateMedicine.getMedicineName());
+        existing.setMg(updateMedicine.getMg());
+        existing.setGeneric(updateMedicine.getGeneric());
+        existing.setType(updateMedicine.getType());
+        existing.setCompany(updateMedicine.getCompany());
+        existing.setQuantity(updateMedicine.getQuantity());
+        existing.setPrice(updateMedicine.getPrice());
+        existing.setAvailable(updateMedicine.isAvailable());
+        existing.setManDate(updateMedicine.getManDate());
+        existing.setExpDate(updateMedicine.getExpDate());
+
+        return medicineRepository.save(existing);
     }
 }
