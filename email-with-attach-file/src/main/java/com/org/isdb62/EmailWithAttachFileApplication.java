@@ -10,6 +10,4 @@ public class EmailWithAttachFileApplication {
 		SpringApplication.run(EmailWithAttachFileApplication.class, args);
 		System.out.println("Email with attach file successfully running.. Now you need come back riha");
 	}
-
-
 }
