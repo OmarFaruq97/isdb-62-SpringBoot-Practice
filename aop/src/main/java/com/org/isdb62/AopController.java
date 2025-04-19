@@ -18,8 +18,8 @@ public class AopController {
     }
 
     @GetMapping("/bill")
-    public String calculateBill(@RequestParam int qty, @RequestParam int price) {
+    public String calculateBill(@RequestParam String name, @RequestParam int qty, @RequestParam int price) {
         int total = aopService.calculateBill(qty, price);
-        return "Total Bill: " + total + " BDT";
+        return "Name:" + name + "\nTotal Bill: " + total + " BDT";
     }
 }
