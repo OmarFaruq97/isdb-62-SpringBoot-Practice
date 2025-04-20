@@ -9,7 +9,7 @@ public class InvoiceApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(InvoiceApplication.class, args);
-		System.out.println("riha you project is strat so don't worry. you need a come back");
+		System.out.println("riha you project is start so don't worry. you need a come back");
 	}
 
 }

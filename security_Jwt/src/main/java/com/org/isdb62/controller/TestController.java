@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@SuppressWarnings("unused")
 public class TestController {
 
     // Public API endpoints - no authentication required
@@ -49,5 +50,4 @@ public class TestController {
     public String adminSettings() {
         return "System settings page. Only accessible to ADMIN role.";
     }
-
 }
