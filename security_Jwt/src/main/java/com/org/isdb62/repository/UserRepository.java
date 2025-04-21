@@ -1,5 +1,6 @@
 package com.org.isdb62.repository;
 
+
 import com.org.isdb62.constans.Role;
 import com.org.isdb62.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
