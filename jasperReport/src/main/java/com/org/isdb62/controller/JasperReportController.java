@@ -26,7 +26,7 @@ public class JasperReportController {
 
     @GetMapping("/invoice")
     public void generateInvoiceReport(HttpServletResponse response) throws Exception {
-        ClassPathResource reportResource = new ClassPathResource("reports/Invoice.jrxml");
+        ClassPathResource reportResource = new ClassPathResource("reports/Invoice2.jrxml");
         InputStream reportStream = reportResource.getInputStream();
 
         JasperReport jasperReport = JasperCompileManager.compileReport(reportStream);
