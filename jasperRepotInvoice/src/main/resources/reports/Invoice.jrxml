@@ -1,0 +1,330 @@
+<!-- Created with Jaspersoft Studio version 7.0.2.final using JasperReports Library version 7.0.2-31532122640f516c6d17238ae0e41a08113d5ac0  -->
+<jasperReport name="Invoice" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0476225a-75b3-4d68-93a9-f7d233c0ad24">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="aW52b2ljZSBBUyAsNTMsMTYsOWVhZDdmYmEtODViNS00NjVhLWIxYjUtMDYyOGQ3NTIyNWIwOw=="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DBConnection.jrdax"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#8FCCCC">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#CFE6E6">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<dataset name="DatabaseForInvoiceJR" uuid="b9427bca-1f69-4096-b894-dcb1ddb5a133">
+		<property name="com.jaspersoft.studio.data.sql.tables" value="aW52b2ljZSBBUyAsNDQsNjksNTc2YWRmZTItMjMxOS00MGYzLThkOGQtMTQ3OGRlMWY3ZWY4Ow=="/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DBConnection.jrdax"/>
+		<query language="SQL"><![CDATA[SELECT id,
+	amount,
+	contact_number,
+	customer_name,
+	discount,
+	discount_amount,
+	price,
+	quantity,
+	net_payable,
+	item_name,
+	invoice_number
+FROM invoice]]></query>
+		<field name="id" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.name" value="id"/>
+			<property name="com.jaspersoft.studio.field.label" value="id"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+		</field>
+		<field name="amount" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="amount"/>
+			<property name="com.jaspersoft.studio.field.label" value="amount"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+		</field>
+		<field name="contact_number" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="contact_number"/>
+			<property name="com.jaspersoft.studio.field.label" value="contact_number"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+		</field>
+		<field name="customer_name" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="customer_name"/>
+			<property name="com.jaspersoft.studio.field.label" value="customer_name"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+		</field>
+		<field name="discount" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="discount"/>
+			<property name="com.jaspersoft.studio.field.label" value="discount"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+		</field>
+		<field name="discount_amount" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="discount_amount"/>
+			<property name="com.jaspersoft.studio.field.label" value="discount_amount"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+		</field>
+		<field name="price" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="price"/>
+			<property name="com.jaspersoft.studio.field.label" value="price"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+		</field>
+		<field name="quantity" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="quantity"/>
+			<property name="com.jaspersoft.studio.field.label" value="quantity"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+		</field>
+		<field name="net_payable" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.name" value="net_payable"/>
+			<property name="com.jaspersoft.studio.field.label" value="net_payable"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+		</field>
+		<field name="item_name" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="item_name"/>
+			<property name="com.jaspersoft.studio.field.label" value="item_name"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+		</field>
+		<field name="invoice_number" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="invoice_number"/>
+			<property name="com.jaspersoft.studio.field.label" value="invoice_number"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+		</field>
+	</dataset>
+	<query language="SQL"><![CDATA[SELECT id,
+	amount,
+	contact_number,
+	customer_name,
+	discount,
+	discount_amount,
+	invoice_number,
+	item_name,
+	net_payable,
+	price,
+	quantity
+FROM invoice]]></query>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+	</field>
+	<field name="amount" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="amount"/>
+		<property name="com.jaspersoft.studio.field.label" value="amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+	</field>
+	<field name="contact_number" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="contact_number"/>
+		<property name="com.jaspersoft.studio.field.label" value="contact_number"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+	</field>
+	<field name="customer_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="customer_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="customer_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+	</field>
+	<field name="discount" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="discount"/>
+		<property name="com.jaspersoft.studio.field.label" value="discount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+	</field>
+	<field name="discount_amount" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="discount_amount"/>
+		<property name="com.jaspersoft.studio.field.label" value="discount_amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+	</field>
+	<field name="invoice_number" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="invoice_number"/>
+		<property name="com.jaspersoft.studio.field.label" value="invoice_number"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+	</field>
+	<field name="item_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="item_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="item_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+	</field>
+	<field name="net_payable" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="net_payable"/>
+		<property name="com.jaspersoft.studio.field.label" value="net_payable"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+	</field>
+	<field name="price" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="price"/>
+		<property name="com.jaspersoft.studio.field.label" value="price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+	</field>
+	<field name="quantity" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="quantity"/>
+		<property name="com.jaspersoft.studio.field.label" value="quantity"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="invoice"/>
+	</field>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="03c189f2-2f6a-48be-a5b0-3e64e4ee9699" x="0" y="30" width="550" height="49" fontSize="33.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Invoice Details]]></text>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Solid"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="4620470c-206f-4ee2-b478-230d43f4b0a6" x="26" y="0" width="100" height="30" pattern="MMMMM dd, yyyy">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+		<element kind="textField" uuid="aa345082-02a2-4660-958a-53057b6101db" x="480" y="0" width="100" height="30" pattern="HH:mm">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+	</title>
+	<summary height="337" splitType="Stretch">
+		<element kind="component" uuid="251db381-376d-4123-8074-1493db8c29b4" x="0" y="0" width="550" height="200">
+			<component kind="table" shrinkWidth="false">
+				<datasetRun uuid="cacb5f39-80e0-4d52-82a0-f27e03288658" subDataset="DatabaseForInvoiceJR">
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				</datasetRun>
+				<column kind="single" uuid="a3443987-519e-4a0d-a82a-bcb6280d4d0a" width="50">
+					<columnHeader height="30" style="Table_CH">
+						<element kind="staticText" uuid="b4715b31-9b53-460d-8a5f-96d4a2e1e4b0" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<text><![CDATA[id]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table_TD">
+						<element kind="textField" uuid="eddbdafa-9e31-4064-a4e6-7b2e2dba1242" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<expression><![CDATA[$F{id}]]></expression>
+						</element>
+					</detailCell>
+				</column>
+				<column kind="single" uuid="2977c5f0-aaa1-45ff-b59b-0855ee82e560" width="50">
+					<columnHeader height="30" style="Table_CH">
+						<element kind="staticText" uuid="ed1b7127-46a9-443a-8b33-2ebfeb976e83" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<text><![CDATA[amount]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table_TD">
+						<element kind="textField" uuid="cf604e2d-136d-44be-8a68-a63ba934dc34" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<expression><![CDATA[$F{amount}]]></expression>
+						</element>
+					</detailCell>
+				</column>
+				<column kind="single" uuid="8a563a3b-98e2-41f4-b2e2-16cc26263546" width="50">
+					<columnHeader height="30" style="Table_CH">
+						<element kind="staticText" uuid="45bb1fcc-dc9c-466c-9595-4b0c2897d360" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<text><![CDATA[contact_number]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table_TD">
+						<element kind="textField" uuid="1010b469-8577-438a-8b95-864222c32b3a" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<expression><![CDATA[$F{contact_number}]]></expression>
+						</element>
+					</detailCell>
+				</column>
+				<column kind="single" uuid="2f5c5f25-848a-46ba-b330-889e5492d429" width="50">
+					<columnHeader height="30" style="Table_CH">
+						<element kind="staticText" uuid="c1079e41-b855-47dd-a789-33192ded6307" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<text><![CDATA[customer_name]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table_TD">
+						<element kind="textField" uuid="0aff16fd-bfd2-4127-9960-19c8e9738644" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<expression><![CDATA[$F{customer_name}]]></expression>
+						</element>
+					</detailCell>
+				</column>
+				<column kind="single" uuid="c9d7310d-56ee-4736-a198-86a7d92b4a58" width="50">
+					<columnHeader height="30" style="Table_CH">
+						<element kind="staticText" uuid="df3a7ccb-0574-4b6e-a765-b064f6f5438f" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<text><![CDATA[discount]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table_TD">
+						<element kind="textField" uuid="2d5c3185-38e3-41b6-b21a-0b5ba793d957" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<expression><![CDATA[$F{discount}]]></expression>
+						</element>
+					</detailCell>
+				</column>
+				<column kind="single" uuid="a350ae97-1e46-4ab0-bbd2-61f65cf23f47" width="50">
+					<columnHeader height="30" style="Table_CH">
+						<element kind="staticText" uuid="c37f1fc2-e02e-4d2c-8be7-d15b6a9d5587" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<text><![CDATA[discount_amount]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table_TD">
+						<element kind="textField" uuid="5b3b575d-87f5-4e13-9e19-81a04fc7e1c9" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<expression><![CDATA[$F{discount_amount}]]></expression>
+						</element>
+					</detailCell>
+				</column>
+				<column kind="single" uuid="cfe26ea5-b7b0-4515-bbbd-e50a0c7885b2" width="50">
+					<columnHeader height="30" style="Table_CH">
+						<element kind="staticText" uuid="4897825f-47ee-4387-bae6-d04acde39d48" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<text><![CDATA[price]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table_TD">
+						<element kind="textField" uuid="b5c3dc63-176c-4a80-90f6-e88075a11115" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<expression><![CDATA[$F{price}]]></expression>
+						</element>
+					</detailCell>
+				</column>
+				<column kind="single" uuid="d8503979-0426-4ec0-8831-1626f6142101" width="50">
+					<columnHeader height="30" style="Table_CH">
+						<element kind="staticText" uuid="255deeae-8628-4110-94ad-696cbef96cf5" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<text><![CDATA[quantity]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table_TD">
+						<element kind="textField" uuid="16861664-b736-4130-ab25-38de41de4c7b" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<expression><![CDATA[$F{quantity}]]></expression>
+						</element>
+					</detailCell>
+				</column>
+				<column kind="single" uuid="29dac0cf-51e2-4271-a163-71cb91489591" width="50">
+					<columnHeader height="30" style="Table_CH">
+						<element kind="staticText" uuid="04b309d3-3aa5-4f15-8872-e836c68fbb33" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<text><![CDATA[net_payable]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table_TD">
+						<element kind="textField" uuid="9d361822-aade-44ca-9c7a-c7831311685a" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<expression><![CDATA[$F{net_payable}]]></expression>
+						</element>
+					</detailCell>
+				</column>
+				<column kind="single" uuid="bb60b1df-0992-4b33-a423-3fd6eadae2d4" width="50">
+					<columnHeader height="30" style="Table_CH">
+						<element kind="staticText" uuid="12397647-deb4-4ed2-8a4b-d80fcf673aa6" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<text><![CDATA[item_name]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table_TD">
+						<element kind="textField" uuid="03563d8f-14ac-4bad-b290-b15f4bf3d3e3" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<expression><![CDATA[$F{item_name}]]></expression>
+						</element>
+					</detailCell>
+				</column>
+				<column kind="single" uuid="8aa2535e-3d59-49ea-bd93-9029f1ececde" width="50">
+					<columnHeader height="30" style="Table_CH">
+						<element kind="staticText" uuid="45c92c5f-e1ae-4229-9808-779223b0c343" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<text><![CDATA[invoice_number]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table_TD">
+						<element kind="textField" uuid="318c8b93-8104-4c95-95c1-4104e2958d48" x="0" y="0" width="50" height="30" hTextAlign="Center">
+							<expression><![CDATA[$F{invoice_number}]]></expression>
+						</element>
+					</detailCell>
+				</column>
+			</component>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+			<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+			<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+			<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+			<property name="com.jaspersoft.studio.components.autoresize.proportional" value="true"/>
+		</element>
+	</summary>
+</jasperReport>
