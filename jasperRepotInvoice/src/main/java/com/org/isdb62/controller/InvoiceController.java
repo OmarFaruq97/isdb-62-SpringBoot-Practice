@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/invoices")
+@RequestMapping("invoices")
 public class InvoiceController {
 
     @Autowired
@@ -21,6 +21,7 @@ public class InvoiceController {
 
     @GetMapping
     public List<Invoice> getAll(){
+
         return invoiceService.getAllInvoice();
     }
 

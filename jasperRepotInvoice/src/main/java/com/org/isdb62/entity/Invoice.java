@@ -24,7 +24,7 @@ public class Invoice {
     private int quantity;
     private int price;
     private int amount;
-    private int discount;
+    private String discount;
     private int discountAmount;
     private double netPayable;
 }

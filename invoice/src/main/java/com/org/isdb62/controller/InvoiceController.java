@@ -14,7 +14,7 @@ public class InvoiceController {
     @Autowired
     private InvoiceService invoiceService;
 
-        @PostMapping
+    @PostMapping
     public Invoice createInvoice(@RequestBody Invoice invoice) {
         return invoiceService.saveInvoice(invoice);
     }
