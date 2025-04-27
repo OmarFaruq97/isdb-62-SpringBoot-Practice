@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JasperRepotInvoiceApplication {
+public class JasperReportInvoiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JasperRepotInvoiceApplication.class, args);
+		SpringApplication.run(JasperReportInvoiceApplication.class, args);
 		System.out.println("your project is running riha go ahead");
 	}
 
