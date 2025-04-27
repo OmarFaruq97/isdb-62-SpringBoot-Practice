@@ -20,7 +20,7 @@ public class JasperReportService {
     private DataSource dataSource;
 
     public byte[] generateInvoiceReport() throws JRException, SQLException, IOException {
-        ClassPathResource resource = new ClassPathResource("/reports/Invoice.jrxml");
+        ClassPathResource resource = new ClassPathResource("/reports/InvoiceE.jrxml");
         InputStream reportStream = resource.getInputStream();
 
         JasperReport jasperReport = JasperCompileManager.compileReport(reportStream);
