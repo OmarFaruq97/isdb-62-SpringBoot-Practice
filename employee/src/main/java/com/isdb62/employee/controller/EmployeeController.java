@@ -14,7 +14,7 @@ import com.isdb62.employee.model.Employee;
 import com.isdb62.employee.service.EmployeeService;
 
 @RestController
-@RequestMapping(value = "/employee")
+@RequestMapping("/employees")
 public class EmployeeController {
 	private EmployeeService service;
 

@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -18,6 +19,8 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import com.isdb62.employee.model.Employee;
+
+import javax.swing.*;
 
 @Repository
 public class EmployeeRepository {
@@ -39,7 +42,7 @@ public class EmployeeRepository {
         parameters.put("designation", employee.getDesignation());
         parameters.put("age", employee.getAge());
         parameters.put("address", employee.getAddress());
-        parameters.put("dob", employee.getDob());
+//        parameters.put("dob", employee.getDob());
         parameters.put("salary", employee.getSalary());
 
         Number key = employeeInsert.executeAndReturnKey(parameters);
@@ -68,7 +71,7 @@ public class EmployeeRepository {
                 + "age = ?, address = ?, dob = ?, salary = ? WHERE id = ?";
 
         return jdbcTemplate.update(sql, employee.getName(), employee.getEmail(), employee.getDesignation(),
-                employee.getAge(), employee.getAddress(), employee.getDob(), employee.getSalary(), employee.getId());
+                employee.getAge(), employee.getAddress(), employee.getSalary(), employee.getId());
     }
 
     // Delete an employee by ID
@@ -94,7 +97,7 @@ public class EmployeeRepository {
     public Employee saveAndReturnEmp(Employee employee) {
         try (Connection connection = jdbcTemplate.getDataSource().getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "INSERT INTO Employee (name, email, designation, age, address, dob, salary) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                     "INSERT INTO Employee (name, email, designation, age, address, salary) VALUES (?, ?, ?, ?, ?, ?)",
                      Statement.RETURN_GENERATED_KEYS)) {
 
             // Set the parameters
@@ -103,7 +106,7 @@ public class EmployeeRepository {
             preparedStatement.setString(3, employee.getDesignation());
             preparedStatement.setInt(4, employee.getAge());
             preparedStatement.setString(5, employee.getAddress());
-            preparedStatement.setObject(6, employee.getDob());
+//            preparedStatement.setObject(6, employee.getDob());
             preparedStatement.setDouble(7, employee.getSalary());
 
             // Execute the insert
@@ -120,7 +123,7 @@ public class EmployeeRepository {
 
                     // Set the ID in the employee object
                     Employee savedEmployee = new Employee(id, employee.getName(), employee.getEmail(),
-                            employee.getDesignation(), employee.getAge(), employee.getAddress(), employee.getDob(),
+                            employee.getDesignation(), employee.getAge(), employee.getAddress(),
                             employee.getSalary());
 
                     return savedEmployee;
@@ -144,7 +147,7 @@ public class EmployeeRepository {
                     rs.getString("designation"),
                     rs.getInt("age"),
                     rs.getString("address"),
-                    rs.getObject("dob", LocalDate.class),
+//                    rs.getObject("dob", LocalDate.class),
                     rs.getDouble("salary")
             );
         }
