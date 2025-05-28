@@ -28,7 +28,7 @@ public class Medicine {
     private String generic;
     private String type;
 
-    private String quantity;
+    private int quantity;
     private BigDecimal price;
 
 }

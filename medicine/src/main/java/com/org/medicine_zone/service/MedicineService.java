@@ -2,7 +2,6 @@ package com.org.medicine_zone.service;
 
 import com.org.medicine_zone.model.Medicine;
 import com.org.medicine_zone.repository.MedicineRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,10 +41,13 @@ public class MedicineService {
 
         //update fields
         existing.setMedicineName(updateMedicine.getMedicineName());
+
         existing.setGeneric(updateMedicine.getGeneric());
         existing.setType(updateMedicine.getType());
+
         existing.setQuantity(updateMedicine.getQuantity());
         existing.setPrice(updateMedicine.getPrice());
+
 
         return medicineRepository.save(existing);
     }
