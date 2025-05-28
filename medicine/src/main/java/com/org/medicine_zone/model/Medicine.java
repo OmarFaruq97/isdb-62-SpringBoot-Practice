@@ -24,13 +24,11 @@ public class Medicine {
     private int id;
 
     private String medicineName;
-    private String mg;
+
     private String generic;
     private String type;
-    private String company;
+
     private String quantity;
     private BigDecimal price;
-    private boolean available;
-    private Date manDate;
-    private Date expDate;
+
 }
