@@ -56,6 +56,4 @@ public class EmployeeController {
 		List <Employee> name1 = service.getempByname(name);
 		return name1;
 	}
-	
-	
 }
