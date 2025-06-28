@@ -25,7 +25,7 @@ public class FileStorageService {
 
         Path uploadPath = Paths.get(UPLOAD_DIR);
 
-        if(!Files.exists(uploadPath)) {
+        if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
         }
 
