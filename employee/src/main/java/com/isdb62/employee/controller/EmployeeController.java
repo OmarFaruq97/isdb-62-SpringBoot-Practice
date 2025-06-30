@@ -25,8 +25,14 @@ public class EmployeeController {
 
     @PostMapping
     public Employee saveEmp(@RequestBody Employee employee) {
-        return service.saveEmployee(employee);
+        try {
+            return service.saveEmployee(employee);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
     }
+
 
     @PostMapping("/{employeeId}/upload")
     public ResponseEntity<?> uploadFile(@PathVariable Integer employeeId,
