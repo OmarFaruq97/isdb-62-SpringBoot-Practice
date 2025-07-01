@@ -24,7 +24,9 @@ public class EmployeeRepository {
         this.jdbcTemplate = jdbcTemplate;
         this.employeeInsert = new SimpleJdbcInsert(jdbcTemplate)
                 .withTableName("Employee")
-                .usingGeneratedKeyColumns("id");
+                .usingGeneratedKeyColumns("id")
+//                I don't understand this line
+                .usingColumns("name", "email", "designation", "age", "address", "dob", "salary", "image");
     }
 
     // Save an employee and return the generated ID
