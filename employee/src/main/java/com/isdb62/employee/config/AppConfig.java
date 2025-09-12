@@ -1,14 +1,13 @@
 package com.isdb62.employee.config;
 
-import java.time.Duration;
-
-import javax.sql.DataSource;
-
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+
+import javax.sql.DataSource;
+import java.time.Duration;
 
 @Configuration
 public class AppConfig {
@@ -16,11 +15,13 @@ public class AppConfig {
     public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-//      dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
+
+       // dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
         dataSource.setUrl("jdbc:postgresql://localhost:5432/DemoDB");
         dataSource.setUsername("postgres");
-//		dataSource.setPassword("isdb62");
-        dataSource.setPassword("1245");
+        //dataSource.setPassword("isdb62");
+        dataSource.setPassword("1234");
+
         dataSource.setInitialSize(5); // Initial connections in the pool
         dataSource.setMaxTotal(20); // Maximum number of active connections
         dataSource.setMaxIdle(10); // Maximum idle connections

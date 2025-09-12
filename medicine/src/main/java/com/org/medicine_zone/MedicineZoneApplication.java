@@ -9,6 +9,7 @@ public class MedicineZoneApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MedicineZoneApplication.class, args);
 
+		System.out.println("project running riha chill");
 	}
 
 }
